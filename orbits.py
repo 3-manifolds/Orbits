@@ -173,18 +173,6 @@ class Pairing:
             return self.domain.start < other.domain.start
         return self.isometry.flip < other.isometry.flip
 
-    # def __XXcmp__(self, other):
-    #     """
-    #     Linear ordering of Pairings.
-    #     """
-    #     if self.range.end != other.range.end:
-    #         return cmp(other.range.end, self.range.end)
-    #     if self.domain.width != other.domain.width:
-    #         return cmp(other.domain.width, self.domain.width)
-    #     if self.domain.start != other.domain.start:
-    #         return cmp(self.domain.start, other.domain.start)
-    #     return cmp(self.isometry.flip, other.isometry.flip)
-
     def __contains__(self,x):
         """
         True if the argument is contained in either the domain or range.
@@ -212,9 +200,6 @@ class Pairing:
             return self.isometry.shift == 0
         else:
             return self.domain.width == 1 and self.domain == self.range
-#        return result
-        #return (self.is_preserving and self.isometry.shift == 0 or
-        #        self.domain.width == 1 and self.domain == self.range)
 
     def contract(self,I):
         """
